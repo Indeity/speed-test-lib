@@ -1,4 +1,4 @@
-apply plugin: 'com.github.dcendents.android-maven'
+//apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 
 group 'fr.bmartel'
@@ -73,42 +73,42 @@ bintray {
     }
 }
 
-install {
-    repositories.mavenInstaller {
-        pom {
-            project {
-                description 'Speed Test library for Java/Android'
-                packaging 'jar'
-                name 'jspeedtest'
-                url siteUrl
-                licenses {
-                    license {
-                        name 'The MIT License'
-                        url 'https://github.com/bertrandmartel/speed-test-lib/blob/master/LICENSE.md'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'bertrandmartel'
-                        name 'Bertrand Martel'
-                        email 'bmartel.fr@gmail.com'
-                    }
-                }
-                scm {
-                    connection 'https://github.com/bertrandmartel/speed-test-lib.git'
-                    developerConnection 'https://github.com/bertrandmartel/speed-test-lib.git'
-                    url siteUrl
-                }
-            }
-            whenConfigured {
-                p ->
-                    p.dependencies = p.dependencies.findAll {
-                        dep -> (dep.artifactId.notIn(["junit", "concurrentunit", "json-simple", "gson"]))
-                    }
-            }
-        }
-    }
-}
+//install {
+//    repositories.mavenInstaller {
+//        pom {
+//            project {
+//                description 'Speed Test library for Java/Android'
+//                packaging 'jar'
+//                name 'jspeedtest'
+//                url siteUrl
+//                licenses {
+//                    license {
+//                        name 'The MIT License'
+//                        url 'https://github.com/bertrandmartel/speed-test-lib/blob/master/LICENSE.md'
+//                    }
+//                }
+//                developers {
+//                    developer {
+//                        id 'bertrandmartel'
+//                        name 'Bertrand Martel'
+//                        email 'bmartel.fr@gmail.com'
+//                    }
+//                }
+//                scm {
+//                    connection 'https://github.com/bertrandmartel/speed-test-lib.git'
+//                    developerConnection 'https://github.com/bertrandmartel/speed-test-lib.git'
+//                    url siteUrl
+//                }
+//            }
+//            whenConfigured {
+//                p ->
+//                    p.dependencies = p.dependencies.findAll {
+//                        dep -> (dep.artifactId.notIn(["junit", "concurrentunit", "json-simple", "gson"]))
+//                    }
+//            }
+//        }
+//    }
+//}
 
 Object.metaClass.notIn = { Object collection ->
     !(delegate in collection)
@@ -129,9 +129,9 @@ artifacts {
     archives sourcesJar
 }
 
-task findConventions << {
-    println project.getConvention()
-}
+//task findConventions << {
+//    println project.getConvention()
+//}
 
 task generateJavadoc(type: Javadoc) {
     source = sourceSets.main.allJava

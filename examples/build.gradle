@@ -33,9 +33,9 @@ artifacts {
     archives sourcesJar
 }
 
-task findConventions << {
-    println project.getConvention()
-}
+//task findConventions << {
+//    println project.getConvention()
+//}
 
 task downloadFile(type: JavaExec) {
     classpath = sourceSets.main.runtimeClasspath
